@@ -1,0 +1,2 @@
+[env]
+52.66.197.52 ansible_connection=ssh

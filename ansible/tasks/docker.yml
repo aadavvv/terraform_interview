@@ -1,0 +1,21 @@
+---
+- name: Install | Package update
+  action: shell sudo yum update -y
+  tags: install
+
+- name: Install | Docker Installation
+  action: shell sudo yum install docker -y
+  tags: install
+
+- name: Service | Docker start
+  action: shell sudo systemctl start docker
+  tags: install
+
+- name: Jenkins | Image Pull
+  action: shell sudo docker pull jenkins/jenkins
+  tags: install
+
+- name: Jenkins | Install Jenkins
+  action: shell sudo docker run -d -p 80:8080 -p 50000:50000 jenkins/jenkins:latest
+  tags: install
+
